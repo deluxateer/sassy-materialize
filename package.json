@@ -1,7 +1,7 @@
 {
   "name": "sassy-materialize",
   "version": "1.0.0",
-  "description": "compiles, concats, and minifies materialize v1.0.0 files",
+  "description": "compiles, concatenates, and minifies materialize v1.0.0 files using Gulp 4. https://github.com/Dogfalo/materialize",
   "main": "index.js",
   "scripts": {
     "build": "gulp",
