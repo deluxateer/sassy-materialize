@@ -5,7 +5,7 @@ Link to the Materialize framework source code: https://github.com/Dogfalo/materi
 
 #### Setup
 ```
-git clone https://github.com/***REMOVED***/sassy-materialize.git
+git clone https://github.com/deluxateer/sassy-materialize.git
 cd sassy-materialize
 npm install
 npm run build

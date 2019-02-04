@@ -9,7 +9,7 @@
     "js": "gulp js",
     "watch": "gulp watch"
   },
-  "author": "***REMOVED***",
+  "author": "Deluxateer",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
