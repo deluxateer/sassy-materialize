@@ -94,6 +94,6 @@ exports.scss = scss;
 exports.js = js;
 exports.watch = watch;
 
-let build = gulp.series(scss, js, watch);
+let build = gulp.series(gulp.parallel(scss, js), watch);
 
 exports.default = build;
