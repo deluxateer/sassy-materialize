@@ -43,43 +43,31 @@ let jsFiles = [
 jsFiles = jsFiles.map(file => `src/${file}`);
 
 // Compile Scss Files
-function scss() {
-  return (
-    gulp.src(['src/sass/*.scss'])
-      .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
-      .pipe(sass({
-        outputStyle: 'compressed'
-      }).on('error', sass.logError))
-      .pipe(autoprefixer({
-        browsers: [
-          'last 2 versions',
-          'Chrome >= 30',
-          'Firefox >= 30',
-          'ie >= 10',
-          'Safari >= 8'
-        ]
-      }))
-      .pipe(rename("materialize.min.css"))
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest('dist/css/'))
-  );
-}
+const scss = () => (
+  gulp.src(['src/sass/*.scss'])
+    .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(rename("materialize.min.css"))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/css/'))
+);
 
 // Concatenate JS Files
-function js() {
-  return (
-    gulp.src(jsFiles)
-      .pipe(sourcemaps.init())
-      .pipe(babel())
-      .pipe(concat('materialize.min.js'))
-      .pipe(uglify())
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest('dist/js/'))
-  );
-}
+const js = () => (
+  gulp.src(jsFiles)
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(concat('materialize.min.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist/js/'))
+);
 
 // Watch
-function watch() {
+const watch = () => {
   browserSync.init({
     server: 'dist',
     open: 'external',
